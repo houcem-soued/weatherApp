@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  CityWeather
+
+  Created by Houcem Soued on 15/08/2020.
+  Copyright © 2020 Houcem Soued. All rights reserved.
+*/
+
+"unknown_error" = "An error occured, please try again";
+"invalid_parameters_error" = "An error occured, please try again";
+"invalid_response_error" = "An error occured, please try again";
+"no_result_found_error" = "No result found, please try again";
+"no_Internet_Connection_error" = "Connection lost, please check your network";
+"invalid_api_key" = "An error occured, please try again.";
+
+"cities_title" = "Cities";
+"pressure_title" = "Pressure";
+"humidity_title" = "Humidity";
