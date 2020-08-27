@@ -63,6 +63,7 @@
 		52BA233024E950AD00AA9395 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA232F24E950AD00AA9395 /* AppCoordinatorTests.swift */; };
 		52BA233224E950EA00AA9395 /* EnvironementMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA233124E950EA00AA9395 /* EnvironementMock.swift */; };
 		52BA233424E951E000AA9395 /* OpenWeatherApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA233324E951E000AA9395 /* OpenWeatherApiTests.swift */; };
+		52EE809224F8031100EF7FAA /* OpenWeatherClient in Resources */ = {isa = PBXBuildFile; fileRef = 52EE809124F8031100EF7FAA /* OpenWeatherClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +115,6 @@
 		520236E124E3F3EB0067BEE1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		527317E624E99474009E5988 /* CitiesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewModelTests.swift; sourceTree = "<group>"; };
 		527317E824E99A0C009E5988 /* StorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTests.swift; sourceTree = "<group>"; };
-		527F344324F1045700AB6514 /* OpenWeatherClient */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OpenWeatherClient; path = ../../../CitiesWeather/OpenWeatherClient; sourceTree = "<group>"; };
 		52BA22B224E4010F00AA9395 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		52BA22B624E4045200AA9395 /* ErrorDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDisplayCell.swift; sourceTree = "<group>"; };
 		52BA22B724E4045200AA9395 /* ErrorDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorDisplayCell.xib; sourceTree = "<group>"; };
@@ -136,6 +136,7 @@
 		52BA232F24E950AD00AA9395 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		52BA233124E950EA00AA9395 /* EnvironementMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironementMock.swift; sourceTree = "<group>"; };
 		52BA233324E951E000AA9395 /* OpenWeatherApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherApiTests.swift; sourceTree = "<group>"; };
+		52EE809124F8031100EF7FAA /* OpenWeatherClient */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenWeatherClient; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +189,7 @@
 		520236A524E3E6F70067BEE1 /* CityWeather */ = {
 			isa = PBXGroup;
 			children = (
-				527F344324F1045700AB6514 /* OpenWeatherClient */,
+				52EE809124F8031100EF7FAA /* OpenWeatherClient */,
 				520236A624E3E6F70067BEE1 /* AppDelegate.swift */,
 				520236D624E3E8130067BEE1 /* App Environement */,
 				52BA22B124E400F200AA9395 /* Model */,
@@ -448,6 +449,7 @@
 			files = (
 				52BA22BA24E4045200AA9395 /* ErrorDisplayCell.xib in Resources */,
 				520236B324E3E6FA0067BEE1 /* LaunchScreen.storyboard in Resources */,
+				52EE809224F8031100EF7FAA /* OpenWeatherClient in Resources */,
 				520236E224E3F3EB0067BEE1 /* Colors.xcassets in Resources */,
 				52BA232524E8777000AA9395 /* Localizable.strings in Resources */,
 				520236B024E3E6FA0067BEE1 /* Assets.xcassets in Resources */,
