@@ -11,5 +11,5 @@ import Foundation
 extension Environment {
     static let mock = Environment(openWeatherApi: .mock,
                                   storageService: .mock,
-                                  networkStatus: NetworkStatus())
+                                  networkStatus: .live)
 }

@@ -24,7 +24,8 @@ class CitiesListCoordinator: Coordinator {
             .instantiateViewController(withIdentifier: "CitiesListViewController") as? CitiesListViewController else {
                 return
         }
-        let viewModel = CitiesListViewModel()
+        let viewModel = CitiesListViewModel(openWeatherApi: Current.openWeatherApi,
+                                            storageService: Current.storageService)
         viewController.viewModel = viewModel
         viewController.viewModel?.coordinator = self
         

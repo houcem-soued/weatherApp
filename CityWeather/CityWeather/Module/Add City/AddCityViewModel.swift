@@ -11,13 +11,26 @@ import Foundation
 class AddCityViewModel {
     
     var coordinator: AddCityCoordinator?
-    
     var showLoader: (Bool)-> Void = { _ in }
     var showError: (NetworkError)->Void = { _ in }
     
+    private var openWeatherApi: OpenWeatherApi
+    private var isConnectedToNetwork: Bool {
+        Current.networkStatus.isConnected
+    }
+    
+    init(openWeatherApi: OpenWeatherApi) {
+        self.openWeatherApi = openWeatherApi
+    }
+    
     func getWeather(by cityName: String?) {
+        guard isConnectedToNetwork else {
+            showError(NetworkError.noInternetConnection)
+            return
+        }
+        
         showLoader(true)
-        Current.openWeatherApi.fetchCityWeather(cityName) { result in
+        openWeatherApi.fetchCityWeather(cityName) { result in
             self.showLoader(false)
             switch result {
             case .success(let city):

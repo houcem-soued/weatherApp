@@ -16,7 +16,7 @@ struct Environment {
     private(set) var openWeatherApi: OpenWeatherApi = .prod
     private(set) var storageService: StorageService = .prod
     
-    var networkStatus = NetworkStatus()
+    var networkStatus: NetworkStatus = .live
 }
 
 //global varible that should be unique along the project and should be the only access to all the dependencies

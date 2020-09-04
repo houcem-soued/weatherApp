@@ -29,11 +29,6 @@ struct OpenWeatherApi {
 }
 
 func fetchWeather(city: String?, completion: @escaping (Result<City, NetworkError>) -> Void) {
-    guard Current.networkStatus.isConnectedToNetwork() else {
-        completion(.failure(.noInternetConnection))
-        return
-    }
-    
     OpenWeatherClient.getCityWeather(cityName: city) { (result) in
         switch result {
         case .success(let cityWeather):
@@ -45,12 +40,7 @@ func fetchWeather(city: String?, completion: @escaping (Result<City, NetworkErro
     }
 }
 
-func fetchWeather(cities: [String], completion: @escaping (Result<[City], NetworkError>) -> Void) {
-    guard Current.networkStatus.isConnectedToNetwork() else {
-        completion(.failure(.noInternetConnection))
-        return
-    }
-    
+func fetchWeather(cities: [String], completion: @escaping (Result<[City], NetworkError>) -> Void) {    
     var citiesResult = [City]()
     let dispatchGroup = DispatchGroup()
     

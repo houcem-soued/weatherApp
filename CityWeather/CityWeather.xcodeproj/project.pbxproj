@@ -27,6 +27,8 @@
 		527E2E1124E9530F00C5DE86 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520236AA24E3E6F70067BEE1 /* CitiesListViewController.swift */; };
 		527E2E1224E9531700C5DE86 /* String+Lacalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA232724E877A000AA9395 /* String+Lacalizable.swift */; };
 		527F344524F10D8500AB6514 /* OpenWeatherClient in Frameworks */ = {isa = PBXBuildFile; productRef = 527F344424F10D8500AB6514 /* OpenWeatherClient */; };
+		52A9DA7624FE98D500F316BE /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9DA7524FE98D500F316BE /* NetworkMonitor.swift */; };
+		52A9DA7724FE9C4700F316BE /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9DA7524FE98D500F316BE /* NetworkMonitor.swift */; };
 		52BA22B324E4010F00AA9395 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA22B224E4010F00AA9395 /* City.swift */; };
 		52BA22B424E4010F00AA9395 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA22B224E4010F00AA9395 /* City.swift */; };
 		52BA22B824E4045200AA9395 /* ErrorDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA22B624E4045200AA9395 /* ErrorDisplayCell.swift */; };
@@ -55,8 +57,6 @@
 		52BA231524E5341900AA9395 /* CityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA231324E5341900AA9395 /* CityDetailsViewModel.swift */; };
 		52BA231B24E7058700AA9395 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA231A24E7058700AA9395 /* NetworkError.swift */; };
 		52BA231C24E7058700AA9395 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA231A24E7058700AA9395 /* NetworkError.swift */; };
-		52BA231E24E7059D00AA9395 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA231D24E7059D00AA9395 /* NetworkStatus.swift */; };
-		52BA231F24E7059D00AA9395 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA231D24E7059D00AA9395 /* NetworkStatus.swift */; };
 		52BA232524E8777000AA9395 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52BA232424E8777000AA9395 /* Localizable.strings */; };
 		52BA232824E877A000AA9395 /* String+Lacalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA232724E877A000AA9395 /* String+Lacalizable.swift */; };
 		52BA232E24E9336C00AA9395 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA232D24E9336C00AA9395 /* Storage.swift */; };
@@ -115,6 +115,7 @@
 		520236E124E3F3EB0067BEE1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		527317E624E99474009E5988 /* CitiesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewModelTests.swift; sourceTree = "<group>"; };
 		527317E824E99A0C009E5988 /* StorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTests.swift; sourceTree = "<group>"; };
+		52A9DA7524FE98D500F316BE /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		52BA22B224E4010F00AA9395 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		52BA22B624E4045200AA9395 /* ErrorDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDisplayCell.swift; sourceTree = "<group>"; };
 		52BA22B724E4045200AA9395 /* ErrorDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorDisplayCell.xib; sourceTree = "<group>"; };
@@ -129,7 +130,6 @@
 		52BA231024E5340C00AA9395 /* CityDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsCoordinator.swift; sourceTree = "<group>"; };
 		52BA231324E5341900AA9395 /* CityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsViewModel.swift; sourceTree = "<group>"; };
 		52BA231A24E7058700AA9395 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		52BA231D24E7059D00AA9395 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		52BA232424E8777000AA9395 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		52BA232724E877A000AA9395 /* String+Lacalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Lacalizable.swift"; sourceTree = "<group>"; };
 		52BA232D24E9336C00AA9395 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -317,8 +317,8 @@
 		52BA231624E7053700AA9395 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				52A9DA7524FE98D500F316BE /* NetworkMonitor.swift */,
 				52BA231A24E7058700AA9395 /* NetworkError.swift */,
-				52BA231D24E7059D00AA9395 /* NetworkStatus.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -488,12 +488,12 @@
 				520236AB24E3E6F70067BEE1 /* CitiesListViewController.swift in Sources */,
 				52BA22B324E4010F00AA9395 /* City.swift in Sources */,
 				520236A724E3E6F70067BEE1 /* AppDelegate.swift in Sources */,
-				52BA231E24E7059D00AA9395 /* NetworkStatus.swift in Sources */,
 				52BA22CE24E43D7C00AA9395 /* OpenWeatherApi.swift in Sources */,
 				52BA230324E4693000AA9395 /* CityTableViewCell.swift in Sources */,
 				520236DE24E3E9CB0067BEE1 /* CitiesListViewModel.swift in Sources */,
 				52BA231124E5340C00AA9395 /* CityDetailsCoordinator.swift in Sources */,
 				520236DB24E3E98C0067BEE1 /* CitiesListCoordinator.swift in Sources */,
+				52A9DA7624FE98D500F316BE /* NetworkMonitor.swift in Sources */,
 				52BA22BE24E4087400AA9395 /* AddCityViewController.swift in Sources */,
 				52BA230E24E533F700AA9395 /* CityDetailsViewController.swift in Sources */,
 				52BA22C124E4087E00AA9395 /* AddCityViewModel.swift in Sources */,
@@ -520,9 +520,9 @@
 				527E2E0E24E952F000C5DE86 /* AppCoordinator.swift in Sources */,
 				52BA231524E5341900AA9395 /* CityDetailsViewModel.swift in Sources */,
 				52BA233424E951E000AA9395 /* OpenWeatherApiTests.swift in Sources */,
+				52A9DA7724FE9C4700F316BE /* NetworkMonitor.swift in Sources */,
 				52BA230424E4693000AA9395 /* CityTableViewCell.swift in Sources */,
 				52BA22B424E4010F00AA9395 /* City.swift in Sources */,
-				52BA231F24E7059D00AA9395 /* NetworkStatus.swift in Sources */,
 				520236DF24E3E9CB0067BEE1 /* CitiesListViewModel.swift in Sources */,
 				527E2E1024E9530300C5DE86 /* Storage.swift in Sources */,
 				52BA233224E950EA00AA9395 /* EnvironementMock.swift in Sources */,

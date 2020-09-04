@@ -11,7 +11,8 @@ import XCTest
 
 class CitiesListViewModelTests: XCTestCase {
 
-    var citiesListViewModel = CitiesListViewModel()
+    var citiesListViewModel = CitiesListViewModel(openWeatherApi: Current.openWeatherApi,
+                                                  storageService: Current.storageService)
     
     override func setUp() {
         super.setUp()

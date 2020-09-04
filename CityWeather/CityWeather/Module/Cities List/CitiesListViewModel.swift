@@ -14,15 +14,25 @@ class CitiesListViewModel {
     var cities = [City]()
     var refreshView = {}
     var showLoader: (Bool)-> Void = { _ in }
-
+    
     internal var cells = [CitiesListViewModel.Cell]()
-
-    private var isConnectedToNetwork: Bool {
-        Current.networkStatus.isConnectedToNetwork()
+    
+    private var openWeatherApi: OpenWeatherApi
+    private var storageService: StorageService
+    
+    private var isConnectedToNetwork: Bool{
+        Current.networkStatus.isConnected
+    }
+    
+    init(openWeatherApi: OpenWeatherApi, storageService: StorageService) {
+        
+        self.openWeatherApi = openWeatherApi
+        self.storageService = storageService
     }
     
     // MARK: - public functions
-    func getCitiesWeather() {
+    
+    public func getCitiesWeather() {
         self.cities = self.retrieveStoredCities()
         let citiesNames = cities.compactMap { $0.name }
         
@@ -56,8 +66,8 @@ class CitiesListViewModel {
         saveCities(cities: cities)
         refeshData(with: cities)
     }
-
-    internal func refeshData(with citiesResult: [City] = [], error: NetworkError? = nil) {
+    
+    public func refeshData(with citiesResult: [City] = [], error: NetworkError? = nil) {
         cities = citiesResult
         setupCells(with: cities, error: error)
         refreshView()
@@ -92,6 +102,7 @@ extension CitiesListViewModel {
             let error: NetworkError = isConnectedToNetwork ? .noResultFound : .noInternetConnection
             cells = [.errorCell(error: error)]; return
         }
+        
         //Create as much city cells as our cities data
         cells = cities.map {
             Cell.cityCell(city: $0)
@@ -102,19 +113,24 @@ extension CitiesListViewModel {
 // MARK: - Storage functions
 extension CitiesListViewModel {
     private func saveCities(cities: [City]) {
-        Current.storageService.saveCities(cities)
+        storageService.saveCities(cities)
     }
     
     private func retrieveStoredCities()-> [City] {
-        return Current.storageService.loadCities()
+        return storageService.loadCities()
     }
 }
 
 // MARK: - Network functions
 extension CitiesListViewModel {
     func getCitiesWeatherFromNetwork(with citiesNames: [String]) {
+        guard isConnectedToNetwork else {
+            refeshData(error: NetworkError.noInternetConnection)
+            return
+        }
+        
         showLoader(true)
-        Current.openWeatherApi.fetchCitiesWeather(citiesNames) {[weak self] result in
+        openWeatherApi.fetchCitiesWeather(citiesNames) {[weak self] result in
             self?.showLoader(false)
             switch result {
             case .success(let cities):

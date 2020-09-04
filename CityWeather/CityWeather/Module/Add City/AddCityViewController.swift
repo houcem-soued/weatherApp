@@ -29,7 +29,6 @@ class AddCityViewController: UIViewController {
     }
     
     @objc func searchAction(){
-        activityIndicator.startAnimating()
         viewModel?.getWeather(by: searchTextField.text)
     }
     

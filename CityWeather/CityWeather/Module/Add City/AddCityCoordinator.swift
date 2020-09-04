@@ -24,7 +24,7 @@ class AddCityCoordinator: Coordinator {
             .instantiateViewController(withIdentifier: "AddCityViewController") as? AddCityViewController else {
                 return
         }
-        viewController.viewModel = AddCityViewModel()
+        viewController.viewModel = AddCityViewModel(openWeatherApi: Current.openWeatherApi)
         viewController.viewModel?.coordinator = self
         
         self.navigationController.present(viewController, animated: true, completion: nil)

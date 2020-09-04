@@ -53,20 +53,7 @@ class OpenWeatherApiTests: XCTestCase {
             if let error = error { XCTFail("Failed on timeout with error \(error)") }
         }
     }
-    
-    func testFetchCityWeather_FailNoInternet() {
-        Current.networkStatus = NetworkStatusFails()
-        let exp = expectation(description: "return error == noInternetConnection")
-        Current.openWeatherApi.fetchCityWeather("Paris") { result in
-            guard case .failure(let error) = result else { XCTAssert(false) ; return }
-            exp.fulfill()
-            XCTAssert(error == .noInternetConnection)
-        }
-        waitForExpectations(timeout: 5.0) { (error) in
-            if let error = error { XCTFail("Failed on timeout with error \(error)") }
-        }
-    }
-    
+
     // MARK: - FetchCitiesWeather tests
     func testFetchCitiesWeatherSuccess() {
         let exp = expectation(description: "elements returned > 0")
@@ -90,25 +77,5 @@ class OpenWeatherApiTests: XCTestCase {
         waitForExpectations(timeout: 5.0) { (error) in
             if let error = error { XCTFail("Failed on timeout with error \(error)") }
         }
-    }
-    
-    func testFetchCities_FailNoInternet() {
-        Current.networkStatus = NetworkStatusFails()
-        let exp = expectation(description: "return error == noInternetConnection")
-        Current.openWeatherApi.fetchCitiesWeather(["Paris","Nice"]){ result in
-            guard case .failure(let error) = result else { XCTAssert(false) ; return }
-            exp.fulfill()
-            XCTAssert(error == .noInternetConnection)
-        }
-        waitForExpectations(timeout: 5.0) { (error) in
-            if let error = error { XCTFail("Failed on timeout with error \(error)") }
-        }
-    }
-}
-
-private class NetworkStatusFails: NetworkStatus {
-
-    override func isConnectedToNetwork() -> Bool {
-        false
     }
 }
